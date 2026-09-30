@@ -1,0 +1,67 @@
+<?php
+
+
+
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+
+$executionStartTime = microtime(true);
+
+include("config.php");
+
+header('Content-Type: application/json; charset=UTF-8');
+header('Access-Control-Allow-Origin: *');
+
+try {
+
+    $conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+
+} catch (mysqli_sql_exception $e) {
+
+    $output['status']['code'] = "300";
+    $output['status']['name'] = "Database connection failed.";
+    $output['status']['description'] = $e->getMessage();
+    $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+    $output['data'] = [];
+
+    echo json_encode($output);
+
+    exit;
+}
+
+try {
+    $name = $_REQUEST['name'];
+    $locationID = $_REQUEST['locationID'];
+
+    $query = $conn->prepare('INSERT INTO `department` (`name`, `locationID` ) VALUES (?,?)');
+    $query->bind_param("si",$name , $locationID );
+
+	$query->execute();
+
+} catch (mysqli_sql_exception $e) {
+
+    $output['status']['code'] = "400";
+    $output['status']['name'] = "SQL statement failed.";
+    $output['status']['description'] = $e->getMessage();
+    $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+    $output['data'] = [];
+
+    echo json_encode($output);
+
+    exit;
+
+}
+
+
+
+$output['status']['code'] = "200";
+$output['status']['name'] = "ok";
+$output['status']['description'] = "success";
+$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+$output['data'] =   "New Department Successfully Added.";
+
+echo json_encode($output);
+
+mysqli_close($conn);
+
+?>
