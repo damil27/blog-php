@@ -8,6 +8,7 @@
     <title>Home</title>
     <link href="favicon.ico" rel="icon" />
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <!-- navbar start here  -->
@@ -77,18 +78,47 @@
     <!-- navbar end here -->
     <div class="container mt-5">
         <section class="d-flex">
-            <main>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+            <main class="main-blog">
+                <div class="card main-blog-card mb-5" >
+                    <img src="upload/blog/hero-bg_01.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Blog title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text"> <small class="text-body-secondary"> Last updated 3 mins ago </small></p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card main-blog-card mb-5" >
+                    <img src="upload/blog/hero-bg_01.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        <p class="card-text"> <small class="text-body-secondary"> Last updated 3 mins ago </small></p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="card main-blog-card mb-5" >
+                    <img src="upload/blog/techforgood.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        <p class="card-text"> <small class="text-body-secondary"> Last updated 3 mins ago </small></p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </main>
 
-            <aside></aside>
+            <aside class="aside-main">
+                <div class="list-group category-aside ">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                       Category
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">Category 1</a>
+                    <a href="#" class="list-group-item list-group-item-action">Category 2</a>
+                    <a href="#" class="list-group-item list-group-item-action">Category 3</a>
+                  
+                </div>
+            </aside>
         </section>
     </div>
 
